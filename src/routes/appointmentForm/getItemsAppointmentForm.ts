@@ -16,6 +16,9 @@ export const getItemsAppointmentForms = async ( app: FastifyInstance) => {
                     });
                 })
                 response.send(res)
+            },
+            function onError(){
+                //
             }
         )
     })

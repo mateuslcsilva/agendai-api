@@ -18,8 +18,14 @@ export const saveAppointmentForm = async ( app: FastifyInstance) => {
                     `insert into items_appointment_form (question, type, appointment_form) values ${queryItems}`,
                     function onResult(errorItems: any, resultItems: any){
                         response.send(errorItems || resultItems);
+                    },
+                    function onError(){
+                        //
                     }
                 )
+            },
+            function onError(){
+                //
             }
         )
     })
