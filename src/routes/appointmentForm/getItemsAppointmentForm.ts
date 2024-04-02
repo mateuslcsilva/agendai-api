@@ -4,7 +4,7 @@ import { Question } from "../../../types/question";
 export const getItemsAppointmentForms = async ( app: FastifyInstance) => {
     app.get('/getItemsAppointmentForms/:form_id', (request: FastifyRequest<{Params: {form_id: number}}>, response: FastifyReply) => {
         //@ts-ignore
-/*         app.mysql.query(
+        app.mysql.query(
             `select * from items_appointment_form where appointment_form = '${request.params.form_id}'`,
             function onResult(error : any, result : Array<Question>){
                 let res: Array<Question> = [];
@@ -17,6 +17,6 @@ export const getItemsAppointmentForms = async ( app: FastifyInstance) => {
                 })
                 response.send(res)
             }
-        ) */
+        )
     })
 }
