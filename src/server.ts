@@ -10,7 +10,7 @@ app.register(mysql, {
     connectionString: 'mysql://mateus:3003@localhost:3306/agendai'
 });
 
-app.listen({port: 3000}, (error, address) => {
+app.listen({port: 3003}, (error, address) => {
     if(error){
         console.log(error);
     }
