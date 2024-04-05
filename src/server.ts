@@ -6,12 +6,12 @@ import mysql from '@fastify/mysql';
 export const app = fastify();
 app.register(routes);
 app.register(cors, {});
-/* app.register(mysql, {
+app.register(mysql, {
     //connectionString: 'mysql://mateus:3003@localhost:3306/agendai'
     //@ts-ignore
-    connectionString: `mysql://mateus:agendai3003$$@localhost:3306/agendai`
+    connectionString: `mysql://mateus:$$\@\#Mateus123@localhost:3306/agendai`
 });
- */
+
 app.listen({port: 3003}, (error, address) => {
     if(error){
         console.log(error);
