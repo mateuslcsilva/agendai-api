@@ -23,9 +23,6 @@ export const saveAppointmentForm = async ( app: FastifyInstance) => {
                         //
                     }
                 )
-            },
-            function onError(){
-                //
             }
         )
     })

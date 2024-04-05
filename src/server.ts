@@ -9,7 +9,7 @@ app.register(cors, {});
 app.register(mysql, {
     //connectionString: 'mysql://mateus:3003@localhost:3306/agendai'
     //@ts-ignore
-    connectionString: `mysql://mateus:$$\@\#Mateus123@localhost:3306/agendai`
+    connectionString: `mysql://agendai:$$Agendai3003@localhost:3306/agendai`
 });
 
 app.listen({port: 3003}, (error, address) => {
