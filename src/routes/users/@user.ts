@@ -1,6 +1,6 @@
 import { app } from "../../server";
 import { saveUser } from "./saveUser";
 
-export const AppointmentFormRoutes = async() => {
+export const UsersRoutes = async() => {
     app.register(saveUser);
 }
