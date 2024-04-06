@@ -11,7 +11,7 @@ export const authUser = async ( app: FastifyInstance) => {
             `select id from user where email = '${requestBody.email}' and password = '${password}' limit 1`,
             function onResult(error: any, result: any){
                 if(error) return response.send(error);
-                if(result.length == 0) response.send({"status": 204, "message" : "Usuário ou senha inválidos."})
+                if(result.length == 0) return response.send({"status": 204, "message" : "Usuário ou senha inválidos."})
                 response.send({"status": 200, "mensagem": "Logado com sucesso!!", "userId": result[0].insertId});
             }
         )
