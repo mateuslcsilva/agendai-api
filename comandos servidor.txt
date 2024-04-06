@@ -1,0 +1,3 @@
+sudo netstat -lpn |grep :'3000' - ver node rodando
+kill -9 PID - matar processo node
+htop - listar processos em execução
