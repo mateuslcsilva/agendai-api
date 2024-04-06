@@ -12,7 +12,7 @@ export const authUser = async ( app: FastifyInstance) => {
             function onResult(error: any, result: any){
                 if(error) return response.send(error);
                 if(result.length == 0) return response.send({"status": 204, "message" : "Usuário ou senha inválidos."})
-                response.send({"status": 200, "mensagem": "Logado com sucesso!!", "userId": result[0].insertId});
+                response.send({"status": 200, "message": "Logado com sucesso!!", "userId": result[0].insertId});
             }
         )
     })
