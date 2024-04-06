@@ -5,6 +5,7 @@ import { SaveAppointmentForm } from "../../../types/saveAppointmentForm";
 export const saveAppointmentForm = async ( app: FastifyInstance) => {
     app.post('/saveAppointmentForm', (request: FastifyRequest<{ Body: SaveAppointmentForm }>, response: FastifyReply) => {
         const requestBody : SaveAppointmentForm = request.body;
+        response.send(requestBody);
         //@ts-ignore
         app.mysql.query(
             "insert into appointment_form (form_name) values ('teste nome form')",
