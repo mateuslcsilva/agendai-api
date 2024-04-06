@@ -9,7 +9,7 @@ export const saveAppointmentForm = async ( app: FastifyInstance) => {
         try{
             //@ts-ignore
             app.mysql.query(
-                "insert into appointment_form (form_name) values ('teste nome form')",
+                `insert into appointment_form (form_name) values (${requestBody.form_name})`,
                 function onResult(error : any, result : any){
                     if(error) return response.send(error);
                     let queryItems = '';

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "git pull && tsc && node src/server.js"
+    "build": "git pull origin main && tsc && node src/server.js",
+    "conflict": "git diff --name-only --diff-filter=U --relative"
   },
   "keywords": [],
   "author": "",
