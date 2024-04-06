@@ -5,7 +5,6 @@ import { SaveAppointmentForm } from "../../../types/saveAppointmentForm";
 export const saveAppointmentForm = async ( app: FastifyInstance) => {
     app.post('/saveAppointmentForm', (request: FastifyRequest<{ Body: SaveAppointmentForm }>, response: FastifyReply) => {
         const requestBody : SaveAppointmentForm = request.body;
-        console.log(requestBody);
         try{
             //@ts-ignore
             app.mysql.query(
@@ -20,7 +19,8 @@ export const saveAppointmentForm = async ( app: FastifyInstance) => {
                     app.mysql.query(
                         `insert into items_appointment_form (question, type, appointment_form) values ${queryItems}`,
                         function onResult(errorItems: any, resultItems: any){
-                            response.send(errorItems || resultItems);
+                            if(errorItems) return response.send(errorItems);
+                            response.send({"status": 200, "mensagem": "Formulário salvo com sucesso!!"});
                         },
                         function onError(){
                             //
