@@ -3,12 +3,12 @@ import { getAppointmentForms } from "./getAppointmentForm";
 import { getItemsAppointmentForms } from "./getItemsAppointmentForm";
 import { saveAppointmentForm } from "./saveAppointmentForm";
 import { updateAppointmentForm } from "./updateAppointmentForm";
-import { updateItemAppointmentForm } from "./updateItemAppointmentForm";
+import { deleteItemAppointmentForm } from "./deleteItemAppointmentForm";
 
 export const AppointmentFormRoutes = async() => {
     app.register(saveAppointmentForm);
     app.register(getAppointmentForms);
     app.register(updateAppointmentForm);
-    app.register(updateItemAppointmentForm);
+    app.register(deleteItemAppointmentForm);
     app.register(getItemsAppointmentForms);
 }
