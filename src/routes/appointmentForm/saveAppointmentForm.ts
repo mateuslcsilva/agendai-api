@@ -11,6 +11,7 @@ export const saveAppointmentForm = async ( app: FastifyInstance) => {
             app.mysql.query(
                 "insert into appointment_form (form_name) values ('teste nome form')",
                 function onResult(error : any, result : any){
+                    if(error) return response.send(error);
                     let queryItems = '';
                     requestBody.questions.forEach((question : Question, index: number) => {
                         queryItems += `('${question.question}', '${question.type.toUpperCase()}', '${result.insertId}')${++index < requestBody.questions.length ? ',' : ''}`
