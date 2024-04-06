@@ -6,6 +6,7 @@ export const authUser = async ( app: FastifyInstance) => {
     app.post('/authUser', (request: FastifyRequest<{ Body: User }>, response: FastifyReply) => {
         const requestBody = request.body;
         const password = createHash('md5').update(requestBody.password).digest("hex");
+        console.log({...requestBody, password: password})
         //@ts-ignore
         app.mysql.query(
             `select id from user where email = '${requestBody.email}' and password = '${password}' limit 1`,
