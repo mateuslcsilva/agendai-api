@@ -8,11 +8,11 @@ export const authUser = async ( app: FastifyInstance) => {
         const password = createHash('md5').update(requestBody.password).digest("hex");
         //@ts-ignore
         app.mysql.query(
-            `select id from user where email = '${requestBody.email}' and password = '${password}'`,
+            `select id from user where email = '${requestBody.email}' and password = '${password}' limit 1`,
             function onResult(error: any, result: any){
-                console.log(error || result);
                 if(error) return response.send(error);
-                response.send({"status": 200, "mensagem": "Logado com sucesso!!", "userId": result.insertId});
+                if(result.length == 0) response.send({"status": 204, "message" : "Usuário ou senha inválidos."})
+                response.send({"status": 200, "mensagem": "Logado com sucesso!!", "userId": result[0].insertId});
             }
         )
     })
